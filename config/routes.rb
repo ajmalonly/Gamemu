@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  resources :game do
+    resources :booking, only: [:create, :show]
+  end
+  resources :booking, only: [:edit, :index, :delete]
   # Defines the root path route ("/")
   # root "articles#index"
 end
