@@ -2,12 +2,25 @@
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) %>)">
     <h1><%= @game.game_name %></h1>
   </div>
-  <%# <span class="game-tag"><%= pluralize(@game.movies.size, "movie") %>
-  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  %>)">
-    <h2><%= @game.description %></h2>
+
+  <div class="card-category card-large"   %>
+  <h2>A bit more about this game:</h2>
+    <h3><%= @game.description %></h3>
   </div>
 
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), %>)">
-    <h3><%= @game.price %></h3>
+    <h2>price RS:</h2> <h3><%= @game.price %></h3>
   </div>
+
+  <div class="card-category card-large"   %>
+    <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %>
+  </div>
+
+   <div class="card-category card-large"   %>
+     <%= link_to "Delete the game", game_path(@game),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "ms-3 text-danger"
+            %>
+  </div>
+
 </div>

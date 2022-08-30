@@ -26,13 +26,13 @@ class GamesController < ApplicationController
   end
 
   def update
-    @game.update(task_params)
+    @game.update(game_params)
     redirect_to game_path(@game)
   end
 
   def destroy
     @game.destroy
-    redirect_to games_path
+    redirect_to games_path, status: :see_other
   end
 
   private
