@@ -1,4 +1,4 @@
 class Game < ApplicationRecord
   belongs_to :user
-  validates :name, presence: true
+  validates :game_name, presence: true
 end
