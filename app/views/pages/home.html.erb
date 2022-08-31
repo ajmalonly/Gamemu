@@ -19,7 +19,9 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
         <div class="card h-100">
-          <%= image_tag asset_path('fifa.jpeg') %>
+          <% if game.photo.attached? %>
+            <%= cl_image_tag game.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= game.game_name %></h5>
             <p class="card-text"><%= game.description %></p>
