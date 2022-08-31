@@ -16,8 +16,8 @@
     <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %>
   </div>
 
-   <div class="card-category card-large"   %>
-     <%= link_to "Delete the game", game_path(@game),
+  <div class="card-category card-large"   %>
+    <%= link_to "Delete the game", game_path(@game),
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                 class: "ms-3 text-danger"
             %>
