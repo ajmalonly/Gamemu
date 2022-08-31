@@ -19,3 +19,16 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgb(221, 22, 22);
 }
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #670BFF;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #4D04C4;
+  color: white;
+}
