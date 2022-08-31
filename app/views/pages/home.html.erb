@@ -15,42 +15,27 @@
     </div>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <%= image_tag asset_path('fifa.jpeg') %>
-      <div class="card-body">
-        <h5 class="card-title">FIFA</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+  <% @games.each do |game| %>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <%= image_tag asset_path('fifa.jpeg') %>
+          <div class="card-body">
+            <h5 class="card-title"><%= game.game_name %></h5>
+            <p class="card-text"><%= game.description %></p>
+            <h4 class="card-trip-pricing"><%= game.price %></h4>
+            <%= link_to "Book now", game_path(game), class: "btn btn-flat" %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-       <%= image_tag asset_path('ghost.jpg') %>
-      <div class="card-body">
-        <h5 class="card-title">Ghost of Tsushima</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <%= image_tag asset_path('witcher.jpg') %>
-      <div class="card-body">
-        <h5 class="card-title">The Witcher</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
+
+  <% end %>
+
+
+
+
 </div>
+
+
 <p>Find me in app/views/pages/home.html.erb</p>

@@ -1,7 +1,7 @@
 puts "Cleaning Database"
 Booking.destroy_all
-User.destroy_all
 Game.destroy_all
+User.destroy_all
 puts "Database Clean"
 
 puts "Creating seeds"
