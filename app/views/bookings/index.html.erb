@@ -2,6 +2,7 @@
 
 <div id="bookings">
   <% @bookings.each do |booking| %>
+  <%= booking.id %>
     <%= render booking %>
     <p>
       <%= link_to "Show this booking", booking %>

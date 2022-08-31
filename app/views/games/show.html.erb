@@ -28,3 +28,5 @@
   <%= cl_image_tag @game.photo.key, height: 300, width: 400, crop: :fill %>
 
 <% end %>
+
+<%= link_to "Book Now", new_game_booking_path(@game) %>
