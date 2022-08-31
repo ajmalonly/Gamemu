@@ -1,6 +1,6 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black">
-    <h1>Add any kind of games</h1>
+    <h1>My games</h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
 </div>
@@ -9,16 +9,28 @@
     <h3 class="mb-0">Games</h3>
     <%= link_to "Create a game", new_game_path, class: "btn btn-flat" %>
   </div>
-  <div class="row">
-    <% @games.each do |game| %>
 
 
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
+
+
+      <%# <div class="co-12 col-sm-6 col-md-4 mb-3">
         <%= link_to game_path(game), class:"text-decoration-none" do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('game_background.jpg') %>)">
-            <%= game.game_name%>
+          <%# <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('game_background.jpg') %>
+            <%# <%= game.game_name%>
 
-          </div>
+          <%# </div> %>
+
+     <div class="col">
+      <% @games.each do |game| %>
+    <div class="card h-100">
+    <%= link_to game_path(game), class:"text-decoration-none" do %>
+      <%= image_tag asset_path('fifa.jpeg') %>
+      <div class="card-body">
+        <h5 class="card-title"> <%= game.game_name%></h5>
+        <p class="card-text"> <%=game.description%></p>
+        <p class="card-text"> <%=game.price%></p>
+      </div>
+
         <% end %>
       </div>
     <% end %>
