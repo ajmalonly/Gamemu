@@ -4,11 +4,13 @@
     <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
 </div>
+
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
       <h3 class="mb-0">Games</h3>
       <%= link_to "Create a game", new_game_path, class: "btn btn-flat" %>
   </div>
+
 
 <div class="card_games">
           <% @games.each do |game| %>
@@ -17,6 +19,7 @@
             <% if game.photo.attached? %>
               <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
             <% end %>
+
         </div>
           <div>
             <h2 class="card-title"><%= game.game_name %></h2>
