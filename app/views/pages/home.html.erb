@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/m3hn2Kn5Bns);">
   <div class="container">
-    <h1>GameMu, the website that facilitates the  renting of <strong>video games</strong> !</h1>
+    <h1> <mark class="green">GameMu,</mark> the website that facilitates the  renting of <strong>video games</strong> !</h1>
     <p> For people that desire to experience video games differently.</p>
   </div>
 </div>
@@ -20,12 +20,12 @@
       <div class="col">
         <div class="card h-100">
           <% if game.photo.attached? %>
-            <%= cl_image_tag game.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
           <% end %>
           <div class="card-body">
-            <h5 class="card-title"><%= game.game_name %></h5>
-            <p class="card-text"><%= game.description %></p>
-            <h4 class="card-trip-pricing"><%= game.price %></h4>
+            <h5 class="card-title"><h2><%= game.game_name %></h2>
+            <p class="card-text"><p><%= game.description %></p>
+            <h4 class="card-trip-pricing"><h4><%= game.price %> €</h4>
             <%= link_to "Book now", game_path(game), class: "btn btn-flat" %>
           </div>
         </div>
