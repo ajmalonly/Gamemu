@@ -1,47 +1,34 @@
+<body>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/m3hn2Kn5Bns);">
   <div class="container">
-    <h1>GameMu, the website that facilitates the  renting of <strong>video games</strong> !</h1>
+    <h1> <mark class="green">GameMu,</mark> the website that facilitates the  renting of <strong>video games</strong> !</h1>
     <p> For people that desire to experience video games differently.</p>
+      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a game"
+      %>
+      <%= submit_tag "Search", class: "btn btn-success mx-2" %>
+      <% end %>
   </div>
 </div>
 
-
-
-
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-12">
-      <h1>All Games</h1>
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
-
-  <% @games.each do |game| %>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <% if game.photo.attached? %>
-            <%= cl_image_tag game.photo.key, height: 300, width: 400, crop: :fill %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= game.game_name %></h5>
-            <p class="card-text"><%= game.description %></p>
-            <h4 class="card-trip-pricing"><%= game.price %></h4>
-            <%= link_to "Book now", game_path(game), class: "btn btn-flat" %>
-          </div>
+<br>
+    <div class="card_games">
+          <% @games.each do |game| %>
+      <div>
+        <div>
+            <% if game.photo.attached? %>
+              <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
+            <% end %>
         </div>
+          <div>
+            <h2 class="card-title"><%= game.game_name %></h2>
+            <p class="card-text"><%= game.description %></p>
+            <h4 class="card-trip-pricing"><%= game.price %> €</h4>
+            <%= link_to "View More", game_path(game), class: "btn btn-flat" %>
+          </div>
       </div>
+          <% end %>
     </div>
-
-  <% end %>
-
-
-
-
-
-</div>
-
-
-<p>Find me in app/views/pages/home.html.erb</p>

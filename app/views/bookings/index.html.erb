@@ -1,15 +1,15 @@
 <h1>My Bookings</h1>
 
 <div id="bookings">
+<div class="card-product">
+  <div class="card-product-infos">
   <% @bookings.each do |booking| %>
-  <%= booking.id %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
+  <h4><strong><%= booking.game.game_name%></strong></h4>
+  <p><%= booking.start_date%>
+  TO <%= booking.end_date%></p>
+  <%= link_to "Edit Booking", edit_booking_path(booking), class: "btn btn-gradient" %>
+  <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-gradient", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
 </div>
-
-<div>
-<%= link_to "Edit Booking", "#", class: "btn btn-gradient" %>
+</div>
 </div>

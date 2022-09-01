@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :games do
     resources :bookings, only: [:new, :create, :show]
   end
-  resources :bookings, only: [:edit, :index, :update, :delete]
+  resources :bookings, only: [:edit, :index, :update, :destroy]
   # Defines the root path route ("/")
   # root "articles#index"
 end

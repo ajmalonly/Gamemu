@@ -1,9 +1,13 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: :destroy
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_game, only: [:new, :create]
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
+  end
+
+  def show
+    authorize @booking
   end
 
   def new
@@ -21,9 +25,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @booking.update(booking_params)
+    redirect_to bookings_path
+  end
+
   def destroy
     @booking.destroy
-    redirect_to game_path(@booking.game), status: :see_other
+    redirect_to bookings_path, status: :see_other
   end
 
   private

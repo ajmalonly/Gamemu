@@ -1,9 +1,15 @@
 // Specific CSS for your home-page
+// body {
+//   background-color: black;
+// }
+
 .banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
 }
+
+
 
 .banner h1 {
   margin: 0;
@@ -31,4 +37,16 @@
 .btn-flat:hover {
   background: #4D04C4;
   color: white;
+}
+
+mark.green {
+  color:#81ff7f;
+  background: none;
+}
+
+.card_games {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+
 }
