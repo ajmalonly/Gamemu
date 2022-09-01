@@ -4,7 +4,14 @@
       <%= image_tag asset_path('gamemu.JPG') %>
     <% end %>
 
-
+                        <%= form_with url: games_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find a game"
+              %>
+              <%= submit_tag "Search", class: "btn btn-success mx-2" %>
+              <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -20,6 +27,7 @@
               <%= link_to "My Game", games_path, class: "dropdown-item" %>
               <%= link_to "Add Game", new_game_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+
             </div>
           </li>
         <% else %>
