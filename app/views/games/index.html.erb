@@ -10,20 +10,20 @@
     <%= link_to "Create a game", new_game_path, class: "btn btn-flat" %>
   </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <% @games.each do |game| %>
-    <div class="card h-100">
-      <%= link_to game_path(game), class:"text-decoration-none" do %>
-
-        <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
-        <div class="card-body">
-          <h5 class="card-title"> <h2><%= game.game_name%></h2>
-          <p class="card-text"> <p><%=game.description%></p>
-          <h4 class="card-trip-pricing"><h4><%= game.price %> €</h4>
+<div class="card_games">
+          <% @games.each do |game| %>
+      <div>
+        <div>
+            <% if game.photo.attached? %>
+              <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
+            <% end %>
         </div>
-      <% end %>
+          <div>
+            <h2 class="card-title"><%= game.game_name %></h2>
+            <p class="card-text"><%= game.description %></p>
+            <h4 class="card-trip-pricing"><%= game.price %> €</h4>
+            <%= link_to "View More", game_path(game), class: "btn btn-flat" %>
+          </div>
+      </div>
+          <% end %>
     </div>
-    <% end %>
-  </div>
-</div>
