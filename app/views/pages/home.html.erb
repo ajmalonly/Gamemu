@@ -3,12 +3,18 @@
   <div class="container">
     <h1> <mark class="green">GameMu,</mark> the website that facilitates the  renting of <strong>video games</strong> !</h1>
     <p> For people that desire to experience video games differently.</p>
+      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a game"
+      %>
+      <%= submit_tag "Search", class: "btn btn-success mx-2" %>
+      <% end %>
   </div>
 </div>
 
 <br>
-
-
     <div class="card_games">
           <% @games.each do |game| %>
       <div>
