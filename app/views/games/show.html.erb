@@ -1,33 +1,26 @@
-<div>
-<% if @game.photo.attached? %>
-  <%= cl_image_tag @game.photo.key, height: 300, width: 400, crop: :fill %>
-</div>
-
 <div class="position-relative">
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) %>)">
-    <h1> <strong><%= @game.game_name %></strong></h1>
+    <h1><%= @game.game_name %></h1>
   </div>
 
-  <div class="card-category card-large">
-  <h4>Description:</h4>
-    <p><%= @game.description %></p>
+  <div class="card-category card-large"
+  <h2>A bit more about this game:</h2>
+    <h3><%= @game.description %></h3>
   </div>
 
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), %>)">
-    <h2>Price:</h2> <h3><%= @game.price %> €</h3>
+    <h2>price:</h2> <h3><%= @game.price %></h3>
   </div>
 
-  <div class="card-category card-large">
-
+  <div class="card-category card-large"
   <% if @game.user == current_user %>
     <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %>
   <% end %>
   </div>
 
-  <div class="card-category card-large">
+  <div class="card-category card-large"
   <% if @game.user == current_user %>
     <%= link_to "Delete the game", game_path(@game),
-
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                 class: "ms-3 text-danger"
             %>
@@ -35,9 +28,9 @@
   </div>
 
 </div>
-
+<% if @game.photo.attached? %>
+  <%= cl_image_tag @game.photo.key, height: 300, width: 400, crop: :fill %>
 
 <% end %>
-<div class="card-category card-large"   %>
-<%= link_to "Book Now", new_game_booking_path(@game), class: "btn btn-flat" %>
-  </div>
+
+<%= link_to "Book Now", new_game_booking_path(@game) %>

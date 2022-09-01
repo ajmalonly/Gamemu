@@ -4,26 +4,27 @@
     <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
 </div>
+
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
       <h3 class="mb-0">Games</h3>
       <%= link_to "Create a game", new_game_path, class: "btn btn-flat" %>
   </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <% @games.each do |game| %>
-    <div class="card h-100">
-      <%= link_to game_path(game), class:"text-decoration-none" do %>
-
-        <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
-        <div class="card-body">
-          <h5 class="card-title"> <h2><%= game.game_name%></h2>
-          <p class="card-text"> <p><%=game.description%></p>
-          <h4 class="card-trip-pricing"><h4><%= game.price %> €</h4>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <% @games.each do |game| %>
+        <div class="card h-100">
+          <%= link_to game_path(game), class:"text-decoration-none" do %>
+            <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
+            <div class="card-body">
+              <h5 class="card-title"> <h2><%= game.game_name%></h2>
+              <p class="card-text"> <p><%=game.description%></p>
+              <h4 class="card-trip-pricing"><h4><%= game.price %> €</h4>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-    <% end %>
   </div>
 </div>
