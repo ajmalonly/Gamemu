@@ -13,14 +13,18 @@
   </div>
 
   <div class="card-category card-large"   %>
+  <% if @game.user == current_user %>
     <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %>
+  <% end %>
   </div>
 
   <div class="card-category card-large"   %>
+  <% if @game.user == current_user %>
     <%= link_to "Delete the game", game_path(@game),
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                 class: "ms-3 text-danger"
             %>
+  <% end %>
   </div>
 
 </div>
