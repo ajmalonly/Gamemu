@@ -23,10 +23,10 @@
             <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
           <% end %>
           <div class="card-body">
-            <h5 class="card-title"><h2><%= game.game_name %></h2>
-            <p class="card-text"><p><%= game.description %></p>
-            <h4 class="card-trip-pricing"><h4><%= game.price %> €</h4>
-            <%= link_to "Book now", game_path(game), class: "btn btn-flat" %>
+            <h2 class="card-title"><%= game.game_name %></h2>
+            <p class="card-text"><%= game.description %></p>
+            <h4 class="card-trip-pricing"><%= game.price %> €</h4>
+            <%= link_to "View More", game_path(game), class: "btn btn-flat" %>
           </div>
         </div>
       </div>
