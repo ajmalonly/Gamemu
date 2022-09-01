@@ -8,7 +8,7 @@
     <h1> <strong><%= @game.game_name %></strong></h1>
   </div>
 
-  <div class="card-category card-large"   %>
+  <div class="card-category card-large">
   <h4>Description:</h4>
     <p><%= @game.description %></p>
   </div>
@@ -17,16 +17,21 @@
     <h2>Price:</h2> <h3><%= @game.price %> €</h3>
   </div>
 
-  <div class="card-category card-large"   %>
+  <div class="card-category card-large">
 
-   <button type="button"> <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %> </button>
+  <% if @game.user == current_user %>
+    <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %>
+  <% end %>
   </div>
 
-  <div class="card-category card-large"   %>
-     <%= link_to "Delete the game", game_path(@game),
+  <div class="card-category card-large">
+  <% if @game.user == current_user %>
+    <%= link_to "Delete the game", game_path(@game),
+
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                 class: "ms-3 text-danger"
             %>
+  <% end %>
   </div>
 
 </div>
