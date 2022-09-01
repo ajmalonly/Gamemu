@@ -8,22 +8,21 @@
 
 <br>
 
-  <% @games.each do |game| %>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <% if game.photo.attached? %>
-            <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
-          <% end %>
-          <div class="card-body">
+
+    <div class="card_games">
+          <% @games.each do |game| %>
+      <div>
+        <div>
+            <% if game.photo.attached? %>
+              <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
+            <% end %>
+        </div>
+          <div>
             <h2 class="card-title"><%= game.game_name %></h2>
             <p class="card-text"><%= game.description %></p>
             <h4 class="card-trip-pricing"><%= game.price %> €</h4>
             <%= link_to "View More", game_path(game), class: "btn btn-flat" %>
           </div>
-        </div>
       </div>
+          <% end %>
     </div>
-  <% end %>
-</div>
-</body>
