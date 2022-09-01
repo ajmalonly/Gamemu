@@ -1,5 +1,8 @@
 <%= simple_form_for [@game, @booking] do |f| %>
   <%= f.date_field :start_date, class: 'form-control'%>
+  <br>
   <%= f.date_field :end_date, class: 'form-control'%>
+  <br>
   <%= f.submit class: "btn btn-flat" %>
+  <br>
 <% end %>

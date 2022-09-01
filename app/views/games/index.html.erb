@@ -20,7 +20,7 @@
 
           <%# </div> %>
 
-     <div class="col">
+    <div class="col">
       <% @games.each do |game| %>
     <div class="card h-100">
     <%= link_to game_path(game), class:"text-decoration-none" do %>
@@ -28,7 +28,7 @@
       <div class="card-body">
         <h5 class="card-title"> <%= game.game_name%></h5>
         <p class="card-text"> <%=game.description%></p>
-        <p class="card-text"> <%=game.price%></p>
+        <p class="card-text">Rs. <%=game.price%></p>
       </div>
 
         <% end %>
