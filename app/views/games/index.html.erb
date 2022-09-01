@@ -10,29 +10,20 @@
     <%= link_to "Create a game", new_game_path, class: "btn btn-flat" %>
   </div>
 
-
-
-
-      <%# <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to game_path(game), class:"text-decoration-none" do %>
-          <%# <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('game_background.jpg') %>
-            <%# <%= game.game_name%>
-
-          <%# </div> %>
-
-    <div class="col">
-      <% @games.each do |game| %>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <% @games.each do |game| %>
     <div class="card h-100">
-    <%= link_to game_path(game), class:"text-decoration-none" do %>
-      <%= image_tag asset_path('fifa.jpeg') %>
-      <div class="card-body">
-        <h5 class="card-title"> <%= game.game_name%></h5>
-        <p class="card-text"> <%=game.description%></p>
-        <p class="card-text">Rs. <%=game.price%></p>
-      </div>
+      <%= link_to game_path(game), class:"text-decoration-none" do %>
 
-        <% end %>
-      </div>
+        <%= cl_image_tag game.photo.key, height: 300, width: 414, crop: :fill %>
+        <div class="card-body">
+          <h5 class="card-title"> <h2><%= game.game_name%></h2>
+          <p class="card-text"> <p><%=game.description%></p>
+          <h4 class="card-trip-pricing"><h4><%= game.price %> €</h4>
+        </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
 </div>
