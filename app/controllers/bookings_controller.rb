@@ -18,8 +18,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.game = @game
     @booking.user = current_user
+    @booking_days = (@booking.end_date - @booking.start_date).to_i
+    @booking.price = @booking.game.price * @booking_days
     if @booking.save
-      redirect_to game_path(@game)
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
