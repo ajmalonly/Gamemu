@@ -67,6 +67,16 @@ file = URI.open("https://res.cloudinary.com/djyudyavk/image/upload/v1661931667/A
 game10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 game10.save
 
+game11 = Game.new(game_name: "Sea of Thieves", description: "Build the best boat with your friends", price: 10, user: user_three )
+file = URI.open("https://res.cloudinary.com/djyudyavk/image/upload/v1662112507/Airbnb%20Project/Sea_of_thieves__fza3ks.jpg")
+game11.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+game11.save
+
+game12 = Game.new(game_name: "Elder Ring", description: "One rule = be the last one alive", price: 11, user: user_three )
+file = URI.open("https://res.cloudinary.com/djyudyavk/image/upload/v1662112507/Airbnb%20Project/Elder_ring_aq7twp.jpg")
+game12.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+game12.save
+
 puts "Seeds created!"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
