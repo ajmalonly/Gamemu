@@ -1,36 +1,42 @@
-<div class="position-relative">
-  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) %>)">
-    <h1><%= @game.game_name %></h1>
+<%# games id %>
+<br>
+<div class="card mb-3" style="max-width: 1500px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <% if @game.photo.attached? %>
+      <%= cl_image_tag @game.photo.key, height: 500, crop: :fill %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+         <h1><%= @game.game_name %></h1>
+        <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+        <p class="card-text"><%= @game.description %></p>
+   <div>
+    <% if @game.user == current_user %>
+     <button type="button" class="btn btn-info"> <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %> </button>
+    <% end %>
   </div>
-
-  <div class="card-category card-large"
-  <h2>A bit more about this game:</h2>
-    <h3><%= @game.description %></h3>
-  </div>
-
-  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), %>)">
-    <h2>price:</h2> <h3><%= @game.price %></h3>
-  </div>
-
-  <div class="card-category card-large"
-  <% if @game.user == current_user %>
-    <%= link_to "Edit Game", edit_game_path, class: "dropdown-item" %>
-  <% end %>
-  </div>
-
-  <div class="card-category card-large"
-  <% if @game.user == current_user %>
-    <%= link_to "Delete the game", game_path(@game),
+  <br>
+  <div>
+    <% if @game.user == current_user %>
+     <button type="button" class="btn btn-outline-danger"> <%= link_to "Delete the game", game_path(@game),
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                class: "ms-3 text-danger"
-            %>
+                class: "ms-3 text-danger" %> </button>
   <% end %>
   </div>
-
+  <br>
+  <%= link_to "Book Now", new_game_booking_path(@game), class: "btn btn-flat" %>
+      </div>
+  <div>
+  <% if @game.bookings.empty? %>
+  <div class="alert alert-secondary" role="alert">
+     <button type="button" class="btn btn-outline-secondary"> The game has not been booked yet</button>
+  </div>
+    <% else %>
+     <button type="button" class="btn btn-outline-success">The game has been booked</button>
+  <% end %>
+  </div>
+    </div>
+  </div>
 </div>
-<% if @game.photo.attached? %>
-  <%= cl_image_tag @game.photo.key, height: 300, width: 400, crop: :fill %>
-
-<% end %>
-
-<%= link_to "Book Now", new_game_booking_path(@game) %>
