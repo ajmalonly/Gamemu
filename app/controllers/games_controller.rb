@@ -19,6 +19,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.user = current_user
+    @game.video_url = embed(@game.video_url)
     if @game.save
       redirect_to games_path(@game)
     else
@@ -46,6 +47,11 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:game_name, :description, :price, :photo)
+    params.require(:game).permit(:game_name, :description, :price, :photo, :video_url)
+  end
+
+  def embed(youtube_url)
+    youtube_id = youtube_url.split("=").last
+    "//www.youtube.com/embed/#{youtube_id}"
   end
 end
