@@ -1,15 +1,20 @@
-<h1>My Bookings</h1>
+<div class="container">
+  <h1>My Bookings</h1>
 
-<div id="bookings">
-<div class="card-product">
-  <div class="card-product-infos">
-  <% @bookings.each do |booking| %>
-  <h4><strong><%= booking.game.game_name%></strong></h4>
-  <p><%= booking.start_date%>
-  TO <%= booking.end_date%></p>
-  <%= link_to "Edit Booking", edit_booking_path(booking), class: "btn btn-gradient" %>
-  <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-gradient", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
-</div>
-</div>
+  <div id="bookings">
+    <div class="card-product">
+      <div class="card-product-infos">
+        <% @bookings.each do |booking| %>
+          <h4><strong><%= booking.game.game_name%></strong></h4>
+          <p>
+          <%= booking.start_date.strftime("From %d/%m/%Y")%>
+          <%= booking.end_date.strftime("To %d/%m/%Y")%>
+          Rs.<%= booking.price %>
+          </p>
+          <%= link_to "Edit Booking", edit_booking_path(booking), class: "btn btn-gradient" %>
+          <%= link_to "Delete Booking", booking_path(booking), class: "btn btn-gradient", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
