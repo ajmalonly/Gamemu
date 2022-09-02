@@ -22,7 +22,7 @@
           <div>
             <h2 class="card-title"><%= game.game_name %></h2>
             <p class="card-text"><%= game.description %></p>
-            <h4 class="card-trip-pricing"><%= game.price %> €</h4>
+            <h4 class="card-trip-pricing">Rs <%= game.price %></h4>
             <%= link_to "View More", game_path(game), class: "btn btn-flat" %>
           </div>
       </div>
